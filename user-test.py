@@ -34,6 +34,21 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(len(User.user_list), 1)
 
+    def tearDown(self) -> None:
+        User.user_list = []
+
+    def test_save_multiple_users(self):
+        """
+        test_save_multiple_users test case tests if multiple users can be saved correctly
+        in the user list
+        :return:
+        """
+        self.new_user.save_user()
+        test_user = User("test", "user", "0711111111", "test@user.com")
+        test_user.save_user()
+
+        self.assertEqual(len(User.user_list), 2)
+
 
 if __name__ == '__main__':
     unittest.main()

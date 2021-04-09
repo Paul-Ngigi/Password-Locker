@@ -20,3 +20,5 @@ class User:
         :return:
         """
         User.user_list.append(self)
+
+
