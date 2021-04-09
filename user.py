@@ -21,4 +21,9 @@ class User:
         """
         User.user_list.append(self)
 
-
+    def delete_user(self):
+        """
+        Method to delete user from the contact list
+        :return:
+        """
+        User.user_list.remove(self)

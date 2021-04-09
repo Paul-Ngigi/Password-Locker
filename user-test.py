@@ -49,6 +49,20 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(len(User.user_list), 2)
 
+    def test_delete_user(self):
+        """
+        test_delete_user test case tests if a user can be deleted successfully from the
+        user list
+        :return:
+        """
+        self.new_user.save_user()
+        test_user = User("test", "user", "0711111111", "test@user.com")
+        test_user.save_user()
+
+        test_user.delete_user()
+
+        self.assertEqual(len(User.user_list), 1)
+
 
 if __name__ == '__main__':
     unittest.main()
