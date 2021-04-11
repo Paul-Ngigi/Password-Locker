@@ -25,7 +25,6 @@ class TestCredential(unittest.TestCase):
         self.assertEqual(len(Credential.credential_list), 1)
 
     def tearDown(self) -> None:
-
         Credential.credential_list = []
 
     def test_save_multiple_credentials(self):
@@ -59,6 +58,11 @@ class TestCredential(unittest.TestCase):
         test_display_user_credentials tests if we can display the users details correctly
         :return:
         """
+        self.new_credentials.save_credential()
+        new_user = Credential("instagram", "insta67836")
+        new_user.save_credential()
+
+        self.assertEqual(Credential.display_credentials(), Credential.credential_list)
 
 
 if __name__ == '__main__':
