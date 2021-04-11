@@ -13,3 +13,53 @@ class TestCredential(unittest.TestCase):
         :return:
         """
         self.new_credentials = Credential("twitter", "tweet32323")
+
+    def test_save_credential(self):
+        """
+        test_save_credential test case tests if a credential is saved
+        correctly in the credential list
+        :return:
+        """
+        self.new_credentials.save_credential()
+
+        self.assertEqual(len(Credential.credential_list), 1)
+
+    def tearDown(self) -> None:
+
+        Credential.credential_list = []
+
+    def test_save_multiple_credentials(self):
+        """
+                test_save_multiple_credentials test case tests if multiple credentials can be saved correctly
+                in the credential list
+                :return:
+                """
+        self.new_credentials.save_credential()
+        new_user = Credential("instagram", "insta67836")
+        new_user.save_credential()
+
+        self.assertEqual(len(Credential.credential_list), 2)
+
+    def test_delete_credential(self):
+        """
+                test_delete_credential case tests if a credential can be deleted successfully from the
+                credential list
+                :return:
+                """
+        self.new_credentials.save_credential()
+        new_user = Credential("instagram", "insta67836")
+        new_user.save_credential()
+
+        new_user.delete_credential()
+
+        self.assertEqual(len(Credential.credential_list), 1)
+
+    def test_display_user_credentials(self):
+        """
+        test_display_user_credentials tests if we can display the users details correctly
+        :return:
+        """
+
+
+if __name__ == '__main__':
+    unittest.main()
