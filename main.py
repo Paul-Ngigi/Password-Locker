@@ -14,4 +14,11 @@ def create_user(username, password, email):
     return new_user
 
 
+def save_user(user):
+    """
+    Function to save our user
+    :param user:
+    :return:
+    """
+    User.save_user(user)
 
