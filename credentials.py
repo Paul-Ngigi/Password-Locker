@@ -1,3 +1,7 @@
+import random
+import string
+
+
 class Credential:
     credential_list = []  # Created an empty credential list
 
@@ -23,3 +27,13 @@ class Credential:
         :return:
         """
         Credential.credential_list.remove(self)
+
+    @classmethod
+    def display_credentials(cls):
+        return cls.credential_list
+
+    def automatic_generated_password(length=12, password=string.digits + string.ascii_letters + string.ascii_uppercase):
+        """Function to generate a random password"""
+
+        random_password = ''.join(random.choice(password) for i in range(length))
+        return random_password
