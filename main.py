@@ -22,3 +22,11 @@ def save_user(user):
     """
     User.save_user(user)
 
+
+def delete_user(user):
+    """
+    Function to delete a user
+    :param user:
+    :return:
+    """
+    User.delete_user(user)
