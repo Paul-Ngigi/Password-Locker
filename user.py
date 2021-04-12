@@ -41,6 +41,7 @@ class User:
     def user_exists(cls, username, password):
         """
         Method to check if a user exists
+        :param password:
         :param username:
         :return:
         """

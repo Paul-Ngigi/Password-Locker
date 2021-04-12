@@ -96,7 +96,7 @@ def main():
         print("WELCOME TO PASSWORD LOCKER")
         print("\n")
         print("Select an option: \n 1-Create an account \n 2- Display available users "
-              " \n 3-Login to your account \n 3-Exit Python Password Locker")
+              " \n 3-Login to your account \n 4-Exit Python Password Locker")
         print("\n")
 
         choice = int(input())
@@ -126,7 +126,7 @@ def main():
         elif choice == 2:
             if display_all_users():
                 print("Here is a list of your users")
-                print("-"*20)
+                print("-" * 20)
 
                 for user in display_all_users():
                     print(f"Username: {user.username}")
@@ -151,7 +151,7 @@ def main():
 
             verification = check_existing_user(username, password)
 
-            if verification == username:
+            if verification:
                 print("\n")
                 print(f"{username}, welcome to the password locker")
                 print("\n")
@@ -203,13 +203,13 @@ def main():
 
                         save_user_details(create_user_details(social, account_name, password))
                         print("\n")
-                        print(f"Congratulations {user_name}, your details have been saved successfully")
+                        print(f"Congratulations {username}, your details have been saved successfully")
 
                     elif choice == 2:
-                        if display_user_details(user_name):
+                        if display_user_details(username):
                             print("Input a username")
                             print("-" * 10)
-                            for user_details in display_user_details(user_name):
+                            for user_details in display_user_details(username):
                                 print(f"Social Media : {user_details.social} \n Password: {user_details.password}")
                             else:
                                 print("No user details for the given username")
