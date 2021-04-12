@@ -80,3 +80,37 @@ def automatic_generated_password():
     return generate_password
 
 
+def main():
+    print("WELCOME TO PASSWORD LOCKER")
+    print("\n")
+    print("Select an option: \n 1-Create an account \n 2-Login to your account \n 3-Exit Python Password Locker")
+    print("\n")
+
+    choice = int(input())
+
+    while True:
+        if choice == 1:
+            print("*" * 20)
+            print("Create an account")
+            print("*" * 20)
+
+            print("Enter your username")
+            user_name = input()
+            print("-" * 10)
+
+            print("Enter your email")
+            email = input()
+            print("-" * 10)
+
+            print("Enter a new password")
+            password = input()
+            print("-" * 10)
+
+            save_user(create_user(user_name, password, email))
+            print("-" * 10)
+
+            print(f"{user_name}, you have successfully created an account. You may now login")
+
+
+if __name__ == '__main__':
+    main()
