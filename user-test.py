@@ -88,7 +88,7 @@ class TestUser(unittest.TestCase):
         test_user = User("test_user", "user12112", "test@user.com")
         test_user.save_user()
 
-        user_exists = User.user_exists("test_user")
+        user_exists = User.user_exists("test_user", "user12112")
 
         self.assertTrue(user_exists)
 
