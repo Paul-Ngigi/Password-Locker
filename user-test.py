@@ -34,6 +34,10 @@ class TestUser(unittest.TestCase):
         self.assertEqual(len(User.user_list), 1)
 
     def tearDown(self) -> None:
+        """
+        tearDown method that does clean up after each test case has run.
+        :return:
+        """
         User.user_list = []
 
     def test_save_multiple_users(self):
@@ -61,6 +65,39 @@ class TestUser(unittest.TestCase):
         test_user.delete_user()
 
         self.assertEqual(len(User.user_list), 1)
+
+    def test_find_user_by_username(self):
+        """
+        test_find_user_by_username test case tests if we can find a user by a username
+        :return:
+        """
+        self.new_user.save_user()
+        test_user = User("test_user", "user12112", "test@user.com")
+        test_user.save_user()
+
+        found_user = User.find_user_by_username("test_user")
+
+        self.assertEqual(found_user.email, test_user.email)
+
+    def test_user_exists(self):
+        """
+        test to check if we can return a Boolean  if we cannot find the user
+        :return:
+        """
+        self.new_user.save_user()
+        test_user = User("test_user", "user12112", "test@user.com")
+        test_user.save_user()
+
+        user_exists = User.user_exists("test_user")
+
+        self.assertTrue(user_exists)
+
+    def display_all_users(self):
+        """
+        display_all_users test case returns a list of all saved users
+        :return:
+        """
+        self.assertEqual(User.display_users(), User.user_list)
 
 
 if __name__ == '__main__':
