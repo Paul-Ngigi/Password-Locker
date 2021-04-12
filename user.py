@@ -21,7 +21,39 @@ class User:
 
     def delete_user(self):
         """
-        Method to delete user from the contact list
+        Method to delete user from the user list
         :return:
         """
         User.user_list.remove(self)
+
+    @classmethod
+    def find_user_by_username(cls, username):
+        """
+        Method that returns user details that match the username
+        :param username:
+        :return:
+        """
+        for user in cls.user_list:
+            if user.username == username:
+                return user
+
+    @classmethod
+    def user_exists(cls, username):
+        """
+        Method to check if a user exists
+        :param username:
+        :return:
+        """
+        for user in cls.user_list:
+            if user.username == username:
+                return True
+
+        return False
+
+    @classmethod
+    def display_users(cls):
+        """
+        Method that returns a list of all users
+        :return:
+        """
+        return cls.user_list
