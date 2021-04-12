@@ -94,9 +94,8 @@ def automatic_generated_password():
 def main():
     while True:
         print("WELCOME TO PASSWORD LOCKER")
-        print("\n")
-        print("Select an option: \n 1-Create an account \n 2- Display available users "
-              " \n 3-Login to your account \n 4-Exit Python Password Locker")
+        print("Select an option: \n 1 - Create an account \n 2 - Display available users "
+              " \n 3 - Login to your account \n 4 - Exit Python Password Locker")
         print("\n")
 
         choice = int(input())
@@ -213,10 +212,16 @@ def main():
                                 print(f"Social Media : {user_details.social} \n Password: {user_details.password}")
                             else:
                                 print("No user details for the given username")
+
+                    elif choice == 3:
+                        break
+
+
             else:
                 print("Sorry, we can't find such a user. Please try again!")
 
         else:
+            print("Goodbye...")
             break
 
 
