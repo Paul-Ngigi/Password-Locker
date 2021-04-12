@@ -202,7 +202,9 @@ def main():
 
                         save_user_details(create_user_details(social, account_name, password))
                         print("\n")
-                        print(f"Congratulations {username}, your details have been saved successfully")
+                        print(f"Congratulations {username}, your details have been saved successfully.")
+                        print(f"Username: {username}")
+                        print(f"Password: {password}")
 
                     elif choice == 2:
                         if display_user_details(username):
@@ -215,7 +217,6 @@ def main():
 
                     elif choice == 3:
                         break
-
 
             else:
                 print("Sorry, we can't find such a user. Please try again!")
