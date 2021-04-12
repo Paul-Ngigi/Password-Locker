@@ -1,3 +1,4 @@
+#! /usr/bin/env python3.6
 from user import User
 from credentials import Credential
 
@@ -83,14 +84,14 @@ def automatic_generated_password():
 
 
 def main():
-    print("WELCOME TO PASSWORD LOCKER")
-    print("\n")
-    print("Select an option: \n 1-Create an account \n 2-Login to your account \n 3-Exit Python Password Locker")
-    print("\n")
-
-    choice = int(input())
-
     while True:
+        print("WELCOME TO PASSWORD LOCKER")
+        print("\n")
+        print("Select an option: \n 1-Create an account \n 2-Login to your account \n 3-Exit Python Password Locker")
+        print("\n")
+
+        choice = int(input())
+
         if choice == 1:
             print("*" * 20)
             print("Create an account")
@@ -190,7 +191,7 @@ def main():
                             else:
                                 print("No user details for the given username")
 
-        elif choice == 3:
+        else:
             break
 
 
