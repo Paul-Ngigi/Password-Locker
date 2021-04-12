@@ -38,14 +38,14 @@ class User:
                 return user
 
     @classmethod
-    def user_exists(cls, username):
+    def user_exists(cls, username, password):
         """
         Method to check if a user exists
         :param username:
         :return:
         """
         for user in cls.user_list:
-            if user.username == username:
+            if user.username == username and user.password == password:
                 return True
 
         return False
