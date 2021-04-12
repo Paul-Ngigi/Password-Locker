@@ -74,6 +74,14 @@ def display_user_details(username):
     return Credential.display_credentials()
 
 
+def display_all_users():
+    """
+    Function to display all users
+    :return:
+    """
+    return User.display_users()
+
+
 def automatic_generated_password():
     """
     Function that generates an automatic password for users
@@ -87,7 +95,8 @@ def main():
     while True:
         print("WELCOME TO PASSWORD LOCKER")
         print("\n")
-        print("Select an option: \n 1-Create an account \n 2-Login to your account \n 3-Exit Python Password Locker")
+        print("Select an option: \n 1-Create an account \n 2- Display available users "
+              " \n 3-Login to your account \n 3-Exit Python Password Locker")
         print("\n")
 
         choice = int(input())
@@ -115,22 +124,36 @@ def main():
             print(f"{user_name}, you have successfully created an account. You may now login")
 
         elif choice == 2:
+            if display_all_users():
+                print("Here is a list of your users")
+                print("-"*20)
+
+                for user in display_all_users():
+                    print(f"Username: {user.username}")
+                    print(f"Email: {user.email}")
+
+            else:
+                print("\n")
+                print("You don't seem to have any user saved yet")
+                print('\n')
+
+        elif choice == 3:
             print("*" * 20)
             print("Login")
             print("*" * 20)
 
             print("Enter your username")
-            user_name = input()
+            username = input()
             print("-" * 10)
 
             print("Enter your password")
             password = input()
 
-            verification = check_existing_user(user_name, password)
+            verification = check_existing_user(username, password)
 
-            if verification == user_name:
+            if verification == username:
                 print("\n")
-                print(f"{user_name}, welcome to the password locker")
+                print(f"{username}, welcome to the password locker")
                 print("\n")
 
                 while True:
@@ -190,6 +213,8 @@ def main():
                                 print(f"Social Media : {user_details.social} \n Password: {user_details.password}")
                             else:
                                 print("No user details for the given username")
+            else:
+                print("Sorry, we can't find such a user. Please try again!")
 
         else:
             break
