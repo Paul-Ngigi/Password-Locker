@@ -30,10 +30,18 @@ class Credential:
 
     @classmethod
     def display_credentials(cls):
+        """
+        Function to display credentials
+        :return:
+        """
         return cls.credential_list
 
     def automatic_generated_password(length=12, password=string.digits + string.ascii_letters + string.ascii_uppercase):
-        """Function to generate a random password"""
+        """
+        Function to generate a random password
+        :param password:
+        :return:
+        """
 
         random_password = ''.join(random.choice(password) for i in range(length))
         return random_password
