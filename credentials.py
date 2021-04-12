@@ -5,12 +5,14 @@ import string
 class Credential:
     credential_list = []  # Created an empty credential list
 
-    def __init__(self, account, password):
+    def __init__(self, social_media, account, password):
         """
         The init method defines the properties of the object
+        :param social_media:
         :param account:
         :param password:
         """
+        self.social = social_media
         self.account = account
         self.password = password
 

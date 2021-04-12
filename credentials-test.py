@@ -12,7 +12,7 @@ class TestCredential(unittest.TestCase):
         Set up method to be run before each test cases
         :return:
         """
-        self.new_credentials = Credential("twitter", "tweet32323")
+        self.new_credentials = Credential("twitter", "paul", "tweet32323")
 
     def test_save_credential(self):
         """
@@ -38,7 +38,7 @@ class TestCredential(unittest.TestCase):
                 :return:
                 """
         self.new_credentials.save_credential()
-        new_user = Credential("instagram", "insta67836")
+        new_user = Credential("instagram", "alan", "insta67836")
         new_user.save_credential()
 
         self.assertEqual(len(Credential.credential_list), 2)
@@ -50,7 +50,7 @@ class TestCredential(unittest.TestCase):
                 :return:
                 """
         self.new_credentials.save_credential()
-        new_user = Credential("instagram", "insta67836")
+        new_user = Credential("instagram", "alan", "insta67836")
         new_user.save_credential()
 
         new_user.delete_credential()
@@ -63,7 +63,7 @@ class TestCredential(unittest.TestCase):
         :return:
         """
         self.new_credentials.save_credential()
-        new_user = Credential("instagram", "insta67836")
+        new_user = Credential("instagram", "alan", "insta67836")
         new_user.save_credential()
 
         self.assertEqual(Credential.display_credentials(), Credential.credential_list)
